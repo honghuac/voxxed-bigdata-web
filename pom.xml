@@ -14,7 +14,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
 
         <!-- Dependencies version -->
-        <spring-boot.version>1.4.3.RELEASE</spring-boot.version>
+        <spring-boot.version>1.4.1.RELEASE</spring-boot.version>
         <camel.version>2.18.2</camel.version>
         <kafka.version>0.9.0.1</kafka.version>
 
@@ -49,8 +49,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
         <dependency>
@@ -62,11 +61,16 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-kafka-starter</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.apache.kafka</groupId>-->
-            <!--<artifactId>kafka-clients</artifactId>-->
-            <!--<version>${kafka.version}</version>-->
-        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-cache-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-jackson-starter</artifactId>
+        </dependency>
 
     </dependencies>
 

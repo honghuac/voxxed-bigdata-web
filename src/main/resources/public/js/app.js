@@ -8,29 +8,21 @@
             $scope.movies = response.data;
         });
 
-        // $scope.movies = [
-        //     {
-        //         id: 1,
-        //         genre: "fantasy",
-        //         title: "Inception"
-        //     },
-        //     {
-        //         id: 2,
-        //         genre: "fantasy",
-        //         title: "The Matrix"
-        //     },
-        //     {
-        //         id: 3,
-        //         genre: "fantasy",
-        //         title: "Back to the Future"
-        //     }
-        // ];
+        $scope.userId = 1;
+        $scope.setUserId = function (id) {
+            $scope.userId = id;
+        };
 
         $scope.rate = function(movie, rating) {
             movie.rating = rating;
-            $http.post('/api/movies/' + movie.id + "/ratings/" + rating);
+            var event = {
+                userId: $scope.userId,
+                itemId: movie.id,
+                rating: rating,
+                timestamp: new Date().getTime()
+            };
+            $http.post('/api/ratings', event);
         };
-
 
     }]);
 })(window.angular);
