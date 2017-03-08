@@ -15,6 +15,7 @@
  */
 package com.voxxed.bigdata.web;
 
+import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.cache.CacheConstants;
 import org.apache.camel.component.kafka.KafkaConstants;
@@ -45,8 +46,14 @@ public class RouteConfig extends RouteBuilder {
                 .route()
                 .log("Requested recommendation for user ${header.userId}")
                 .setHeader(CacheConstants.CACHE_KEY, header("userId"))
-                .to("cache:recommendations?operation=get")
-                .unmarshal().json(JsonLibrary.Jackson, Recommendation.class);
+                .doTry()
+                    .to("cache:recommendations?operation=get")
+                    .unmarshal().json(JsonLibrary.Jackson, Recommendation.class)
+                .endDoTry()
+                .doCatch(Exception.class)
+                    .setBody().constant(null)
+                    .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(404))
+                .end();
 
 
         from("kafka:kafka:9092?topic=recommendations&groupId=web")
