@@ -50,18 +50,41 @@
 <div class="container" ng-controller="MoviesController">
 
     <div class="row" ng-show="movies.length > 0" ng-cloak>
-        <div class="col-md-4"><a ng-click="setUserId(1)" href="">User 1</a></div>
-        <div class="col-md-4"><a ng-click="setUserId(2)" href="">User 2</a></div>
-        <div class="col-md-4"><a ng-click="setUserId(3)" href="">User 3</a></div>
+        <h2>Users</h2>
+        <div class="col-md-3 text-center" ng-repeat="u in [1,2,3,4]">
+            <button ng-disabled="userId == u" type="button" ng-click="setUserId(u)" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> User {{u}}</button>
+            <div ng-show="userId == u" style="margin-top: 5px; color: #2aabd2">
+                <span class="glyphicon glyphicon-arrow-up"></span>
+            </div>
+        </div>
     </div>
 
     <div class="row" ng-show="movies.length > 0" ng-cloak>
-        <div class="col-md-4" ng-repeat="movie in movies">
-            <h3>{{movie.title}}</h3>
-            <p>Rate it:
-                <a ng-repeat="r in [1,2,3,4,5]" ng-show="movie.rating >= r" href="" ng-click="rate(movie, r)"><span class="glyphicon glyphicon-star"></span></a>
-                <a ng-repeat="r in [1,2,3,4,5]" ng-hide="movie.rating >= r" href="" ng-click="rate(movie, r)"><span class="glyphicon glyphicon-star-empty"></span></a>
+        <h2>Recommendations</h2>
+        <div class="col-md-4 text-center" style="height: 20em" ng-repeat="r in recommendations track by $index">
+            <div class="thumbnail">
+                <div ng-show="r">
+                    <img ng-src="/images/movies/{{movieMap[r].id}}.jpg" style="width: 10em" />
+                </div>
+                <div ng-hide="r">
+                    <img ng-src="/images/question-mark.png" style="width: 10em">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-show="movies.length > 0" ng-cloak>
+        <h2>Movie List</h2>
+        <div class="col-md-4" style="margin-bottom: 3em" ng-repeat="movie in movies">
+            <p>
+                <img src="/images/movies/{{movie.id}}.jpg" style="width: 10em" />
             </p>
+            <p><strong>{{movie.title}}</strong></p>
+            <p>Rate it:
+                <a ng-repeat="r in [1,2,3,4,5]" ng-show="ratings[userId][movie.id] >= r" href="" ng-click="rate(movie, r)"><span class="glyphicon glyphicon-star"></span></a>
+                <a ng-repeat="r in [1,2,3,4,5]" ng-hide="ratings[userId][movie.id] >= r" href="" ng-click="rate(movie, r)"><span class="glyphicon glyphicon-star-empty"></span></a>
+            </p>
+            <hr />
         </div>
 
     </div>

@@ -15,6 +15,7 @@
  */
 package com.voxxed.bigdata.web;
 
+
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.cache.CacheConstants;
@@ -62,6 +63,11 @@ public class RouteConfig extends RouteBuilder {
                 .to("cache://recommendations?operation=add");
 
 
+//        from("timer:tick")
+//                .setHeader(CacheConstants.CACHE_KEY, constant("1"))
+//                .setBody().exchange(e -> new Recommendation(1L, Collections.singletonList((long) new Random().nextInt(10))))
+//                .marshal().json(JsonLibrary.Jackson)
+//                .to("cache://recommendations?operation=add");
 
     }
 

@@ -1,62 +1,50 @@
 [
   {
     "id": 1,
-    "title": "The Shawshank Redemption",
-    "genres": ["Crime", "Drama"]
+    "title": "The Shawshank Redemption"
   },
   {
     "id": 2,
-    "title": "The Godfather",
-    "genres": ["Crime", "Drama"]
+    "title": "The Godfather"
   },
   {
     "id": 3,
-    "title": "The Godfather: Part II",
-    "genres": ["Crime", "Drama"]
+    "title": "The Godfather: Part II"
   },
   {
     "id": 4,
-    "title": "The Dark Knight",
-    "genres": ["Action", "Crime", "Drama", "Thriller"]
+    "title": "The Dark Knight"
   },
   {
     "id": 5,
-    "title": "12 Angry Men",
-    "genres": ["Crime", "Drama"]
+    "title": "12 Angry Men"
   },
   {
     "id": 6,
-    "title": "Schindler's List",
-    "genres": ["Biography", "History", "Drama"]
+    "title": "Schindler's List"
   },
   {
     "id": 7,
-    "title": "Pulp Fiction",
-    "genres": ["Crime", "Drama"]
+    "title": "Pulp Fiction"
   },
   {
     "id": 8,
-    "title": "The Lord of the Rings: The Return of the King",
-    "genres": ["Adventure", "Drama", "Fantasy"]
+    "title": "The Lord of the Rings: The Return of the King"
   },
   {
     "id": 9,
-    "title": "The Good, the Bad and the Ugly",
-    "genres": ["Western"]
+    "title": "The Good, the Bad and the Ugly"
   },
   {
     "id": 10,
-    "title": "Fight Club",
-    "genres": ["Drama"]
+    "title": "Dodgeball: A True Underdog Story"
   },
   {
     "id": 11,
-    "title": "The Lord of the Rings: The Fellowship of the Ring",
-    "genres": ["Adventure", "Drama", "Fantasy"]
+    "title": "Zoolander"
   },
   {
     "id": 12,
-    "title": "Star Wars: Episode V - The Empire Strikes Back",
-    "genres": ["Action", "Adventure", "Fantasy", "Sci-Fi"]
+    "title": "Night at the Museum"
   }
 ]

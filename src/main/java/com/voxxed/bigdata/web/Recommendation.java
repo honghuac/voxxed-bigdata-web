@@ -27,6 +27,11 @@ public class Recommendation implements Serializable {
     public Recommendation() {
     }
 
+    public Recommendation(Long userId, List<Long> items) {
+        this.userId = userId;
+        this.items = items;
+    }
+
     public Long getUserId() {
         return userId;
     }
