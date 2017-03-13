@@ -33,7 +33,7 @@ public class RouteConfig extends RouteBuilder {
 
         restConfiguration().bindingMode(RestBindingMode.json);
 
-        // Full URL: http://localhost:8080/api/...
+        // Full URL: http://localhost:8080/api/ratings
         rest().post("/ratings")
                 .type(Event.class)
                 .route()
@@ -45,7 +45,7 @@ public class RouteConfig extends RouteBuilder {
 
         rest().get("/recommendations/{userId}")
                 .route()
-                .log("Requested recommendation for user ${header.userId}")
+//                .log("Requested recommendation for user ${header.userId}")
                 .setHeader(CacheConstants.CACHE_KEY, header("userId"))
                 .doTry()
                     .to("cache:recommendations?operation=get")
