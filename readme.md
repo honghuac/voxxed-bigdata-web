@@ -1,6 +1,6 @@
 # Voxxed BigData Web
  
-This repository contains the code of the web application used as demo at Voxxed Bucharest 2017.
+This repository contains the code of the web application used as demo at Voxxed talks in 2017.
  
 ## Running
 
